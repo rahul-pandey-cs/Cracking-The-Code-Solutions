@@ -1,5 +1,12 @@
 package Q1_09_String_Rotation;
 
+// String Rotation: Assume you have a method isSubstringwhich checks if one word is a substring of another. Given two strings, sl and s2,
+// write code to check if s2 is a rotation of sl using only one call to isSubstring (e.g.,"waterbottle" is a rotation of"erbottlewat").
+
+// O(n) Complexity
+
+// Trick: add string to itself and check if other string is contained in this string, the big string will contain all permutation of rotated string
+
 public class Question {
 	public static boolean isSubstring(String big, String small) {
 		if (big.indexOf(small) >= 0) {

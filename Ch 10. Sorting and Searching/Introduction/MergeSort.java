@@ -60,7 +60,8 @@ public class MergeSort {
 		mergesort(array);
 		for (int i = 0; i < size; i++) {
 			validate[array[i]]--;
-		}		
+		}
+		AssortedMethods.printIntArray(validate);
 		AssortedMethods.printIntArray(array);
 		for (int i = 0; i < size; i++) {
 			if (validate[i] != 0 || (i < (size-1) && array[i] > array[i+1])) {
