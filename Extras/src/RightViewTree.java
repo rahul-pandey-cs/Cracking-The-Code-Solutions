@@ -1,36 +1,30 @@
-import com.sun.source.tree.BinaryTree;
-
-// class to access maximum level by reference
-class Max_level {
-
-    int max_level;
-}
 
 public class RightViewTree {
 
     Node root;
-    Max_level max = new Max_level();
+    int max_level;
 
-    void printRightView(Node root, int level, Max_level maxLevel) {
+    void printRightView(Node root, int level) {
 
         if (root == null)
             return;
 
-        if (maxLevel.max_level < level) {
+        if (max_level < level) {
             System.out.println(root.data);
-            maxLevel.max_level = level;
+            max_level = level;
         }
-        printRightView(root.right, level + 1, maxLevel);
-        printRightView(root.left, level + 1, maxLevel);
+        printRightView(root.right, level + 1);
+        printRightView(root.left, level + 1);
 
     }
 
     void rightView() {
-        printRightView(root, 1, max);
+        printRightView(root, 1);
     }
 
 
     public static void main(String args[]) {
+
         RightViewTree tree = new RightViewTree();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
