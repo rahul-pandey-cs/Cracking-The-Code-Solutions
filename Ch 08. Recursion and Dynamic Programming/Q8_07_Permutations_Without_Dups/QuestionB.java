@@ -17,20 +17,23 @@ public class QuestionB {
 		for (int i = 0; i < len; i++) {
 			/* Remove char i and find permutations of remaining characters.*/
 			String before = remainder.substring(0, i);
+			System.out.println("Before is " + before);
 			String after = remainder.substring(i + 1, len);
+			System.out.println("After is " + after);
 			ArrayList<String> partials = getPerms(before + after);
-			
+
+			System.out.println("Partial for i=" + i + "is: " + partials);
 			/* Prepend char i to each permutation.*/
 			for (String s : partials) {
 				result.add(remainder.charAt(i) + s);
 			}			
 		}
-		
+		System.out.println("Result is " + result);
 		return result;
 	}
 	
 	public static void main(String[] args) {
-		ArrayList<String> list = getPerms("abc");
+		ArrayList<String> list = getPerms("abcde");
 		System.out.println("There are " + list.size() + " permutations.");
 		for (String s : list) {
 			System.out.println(s);
