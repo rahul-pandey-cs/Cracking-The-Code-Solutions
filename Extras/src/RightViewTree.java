@@ -2,7 +2,7 @@
 public class RightViewTree {
 
     Node root;
-    int max_level;
+    static int max_level;
 
     void printRightView(Node root, int level) {
 
@@ -15,6 +15,20 @@ public class RightViewTree {
         }
         printRightView(root.right, level + 1);
         printRightView(root.left, level + 1);
+
+    }
+
+    void printLeftView(Node root, int level) {
+
+        if (root == null)
+            return;
+
+        if (max_level < level) {
+            System.out.println(root.data);
+            max_level = level;
+        }
+        printRightView(root.left, level + 1);
+        printRightView(root.right, level + 1);
 
     }
 
@@ -36,7 +50,12 @@ public class RightViewTree {
         tree.root.right.left.left = new Node(8);
         tree.root.right.left.left.left = new Node(9);
 
-        tree.rightView();
+        System.out.println("Right View is: ");
+        tree.printRightView(tree.root, 1);
+
+        max_level=0;
+        System.out.println("Left View is: ");
+        tree.printLeftView(tree.root, 1);
 
     }
 }
